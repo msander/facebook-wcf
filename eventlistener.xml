@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE data SYSTEM "http://www.woltlab.com/DTDs/eventListeners.dtd">
+<data>	
+	<import>
+		<eventlistener>
+			<eventClassName>UserAuth</eventClassName>
+			<eventName>loadInstance</eventName>
+			<listenerClassFile>lib/system/event/listener/UserAuthLoadInstanceFacebookListener.class.php</listenerClassFile>
+		</eventlistener>
+	</import>
+</data>

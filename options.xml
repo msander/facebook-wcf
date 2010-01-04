@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE data SYSTEM "http://www.woltlab.com/DTD/options.dtd">
+<data>
+	<import>
+		<categories>
+			<category name="facebook">
+			</category>	
+			<category name="facebook.general">
+				<parent>facebook</parent>
+			</category>
+			<category name="facebook.general.general">
+				<parent>facebook.general</parent>
+			</category>
+		</categories>
+			
+		<options>
+			<option name="module_facebook">
+				<categoryname>module.content</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			
+			<option name="facebook_key_public">
+				<categoryname>facebook.general.general</categoryname>
+				<optiontype>text</optiontype>
+				<defaultvalue></defaultvalue>
+			</option>
+			
+			<option name="facebook_key_private">
+				<categoryname>facebook.general.general</categoryname>
+				<optiontype>text</optiontype>
+				<defaultvalue></defaultvalue>
+			</option>
+		</options>
+	</import>
+</data>

@@ -1,0 +1,1 @@
+ALTER TABLE wcf1_user ADD facebookIdentifier varchar(255) NOT NULL AFTER salt ;

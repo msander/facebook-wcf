@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE data SYSTEM "http://www.woltlab.com/DTDs/userCPMenu.dtd">
+<data>	
+	<import>
+		<usercpmenuitem name="wcf.user.usercp.menu.link.profile.facebook">
+			<icon></icon>
+			<link>index.php?form=Facebook</link>
+			<parent>wcf.user.usercp.menu.link.profile</parent>
+			<showorder>4</showorder>
+		</usercpmenuitem>
+	</import>
+</data>
