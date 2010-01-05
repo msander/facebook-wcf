@@ -37,7 +37,7 @@ class UserAuthFacebook extends UserAuthDefault {
     $row = WCF::getDB()->getFirstRow($sql);
     
     if (!$row['userID'] || !$row['facebookIdentifierHash'] || !$row['facebookIdentifierSalt']) return false;
-    if ($row['facebookIdentifierHash'] != StringUtil::encrypt($row['facebookIdentifierSalt'] . $facebookID)) return false;
+    if ($row['facebookIdentifierHash'] != StringUtil::encrypt($row['facebookIdentifierSalt'] . StringUtil::getSaltedHash($facebookID, $row['facebookIdentifierSalt']))) return false;
     
     $user = new $userClassname($row['userID']);
     return $user;
