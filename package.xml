@@ -4,7 +4,7 @@
 	<packageInformation>
 		<packagename><![CDATA[Facebook-Verbindung]]></packagename>
 		<packagedescription><![CDATA[Dieses Plugin verbindet Facebook mit dem WCF. So ist z.B. ein Direktlogin via Facebook möglich.]]></packagedescription>
-		<version>1.0.0</version>
+		<version>1.0.1</version>
 		<date>2010-01-04</date>
 		<unique>1</unique>
 		<plugin>com.woltlab.wcf.form.user</plugin>
@@ -30,5 +30,9 @@
 		<usercpmenu>usercpmenu.xml</usercpmenu>
 		<languages languagecode="de">de.xml</languages>
 		<languages languagecode="de-informal">de-informal.xml</languages>
+	</instructions>
+	<instructions type="update" fromversion="1.0.0">
+		<sql>install-update.sql</sql>
+		<files>files-update.tar</files>
 	</instructions>
 </package>
