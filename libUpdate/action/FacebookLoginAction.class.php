@@ -204,7 +204,17 @@ class FacebookLoginAction extends AbstractAction {
 	  	}
 	  	
 	  	// send password
-	  	###
+		  $subjectData = array('PAGE_TITLE' => WCF::getLanguage()->get(PAGE_TITLE));
+		  $messageData = array(
+		  	'PAGE_TITLE' => WCF::getLanguage()->get(PAGE_TITLE),
+		  	'$username' => $user->username,
+		  	'$userID' => $user->userID,
+		  	'$newPassword' => $password,
+		  	'PAGE_URL' => PAGE_URL,
+		  	'MAIL_ADMIN_ADDRESS' => MAIL_ADMIN_ADDRESS
+	  	);
+		  $mail = new Mail(array($user->username => $user->email), WCF::getLanguage()->get('wcf.user.lostPassword.newPassword.mail.subject', $subjectData), WCF::getLanguage()->get('wcf.user.lostPassword.newPassword.mail', $messageData));
+		  $mail->send();
 		  
 		  // delete captcha
       WCF::getSession()->unregister('captchaDone');
