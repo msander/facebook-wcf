@@ -13,7 +13,11 @@ class UserAuthFacebook extends UserAuthDefault {
 	 *
 	 */
 	public static function loadInstance() {
-		if (self::$instance === null) self::$instance = new UserAuthFacebook();
+		if (self::$instance === null && self::isResponsible() && MODULE_FACEBOOK) self::$instance = new UserAuthFacebook();
+	}
+	
+	protected static function isResponsible() {
+		return (isset($_COOKIE[COOKIE_PREFIX.'userID']) && isset($_COOKIE[COOKIE_PREFIX.'facebookIdentifier']));
 	}
 	
 	public static function loginManuallyFacebook($facebookID, $userClassname = 'UserSession') {
