@@ -27,11 +27,11 @@
 	  <item name="org.gnex.facebook.aktverbdesc.no"><![CDATA[noch keine Verbindung hinterlegt]]></item>
 	  <item name="org.gnex.facebook.newverbdesc"><![CDATA[Neue Facebook-Verbindung]]></item>
 	  <item name="org.gnex.facebook.newverbdesc.no"><![CDATA[keine]]></item>
-	  <item name="org.gnex.facebook.newverbdesc.no.login"><![CDATA[ (Eventuell nicht eingeloggt? <a href="http://www.facebook.de/" target="_blank">Facebook-Login</a>)]]></item>
+	  <item name="org.gnex.facebook.newverbdesc.no.login"><![CDATA[ (Eventuell nicht eingeloggt? <a href="http://www.facebook.de/">Facebook-Login</a>)]]></item>
 		<item name="org.gnex.facebook.passwd"><![CDATA[Passwort]]></item>
 		<item name="org.gnex.facebook.passwd.description"><![CDATA[Gib zur Bestätigung dein Passwort ein!]]></item>
 		<item name="org.gnex.facebook.disabled"><![CDATA[Das Plugin "Facebook-Verbindung" von GneX.org wurde vom Administrator deaktiviert.]]></item>
-		<item name="org.gnex.facebook.noExt"><![CDATA[Bisher konnte keine Facebook-Verbindung ermittelt werden (Eventuell nicht eingeloggt? <a href="http://www.facebook.de/" target="_blank">Facebook-Login</a>).]]></item>
+		<item name="org.gnex.facebook.noExt"><![CDATA[Bisher konnte keine Facebook-Verbindung ermittelt werden (Eventuell nicht eingeloggt? <a href="http://www.facebook.de/">Facebook-Login</a>).]]></item>
 		<item name="org.gnex.facebook.updateSuccess"><![CDATA[Deine bestehende Verbindung mit Facebook wurde erfolgreich zurückgesetzt.]]></item>
 		<item name="org.gnex.facebook.reUpdateSuccess"><![CDATA[Dein Benutzerkonto wurde erfolgreich mit Facebook verbunden.]]></item>
 		<item name="org.gnex.facebook.noVerb"><![CDATA[Die angegebene Facebook-Verbindung konnte keinem Benutzer zugeordnet werden.]]></item>
