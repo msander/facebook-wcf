@@ -14,6 +14,10 @@
 		<item name="wcf.acp.option.category.facebook.general.general.facebook_key_public.description"><![CDATA[Gib hier den PublicKey ein, den Du auf <a href="http://wiki.developers.facebook.com/index.php/Connect/Setting_Up_Your_Site">Facebook</a> erhalten hast.]]></item>
 		<item name="wcf.acp.option.category.facebook.general.general.facebook_key_private"><![CDATA[PrivateKey]]></item>
 		<item name="wcf.acp.option.category.facebook.general.general.facebook_key_private.description"><![CDATA[Gib hier den PrivateKey ein, den Du auf <a href="http://wiki.developers.facebook.com/index.php/Connect/Setting_Up_Your_Site">Facebook</a> erhalten hast.]]></item>
+		<item name="wcf.acp.option.facebook_key_public"><![CDATA[PublicKey]]></item>
+		<item name="wcf.acp.option.facebook_key_public.description"><![CDATA[Gib hier den PublicKey ein, den Du auf <a href="http://wiki.developers.facebook.com/index.php/Connect/Setting_Up_Your_Site">Facebook</a> erhalten hast.]]></item>
+		<item name="wcf.acp.option.facebook_key_private"><![CDATA[PrivateKey]]></item>
+		<item name="wcf.acp.option.facebook_key_private.description"><![CDATA[Gib hier den PrivateKey ein, den Du auf <a href="http://wiki.developers.facebook.com/index.php/Connect/Setting_Up_Your_Site">Facebook</a> erhalten hast.]]></item>
 	</category>
 	<category name="org.gnex">
 		<item name="org.gnex.info"><![CDATA[GneX.org]]></item>
