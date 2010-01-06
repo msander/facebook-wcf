@@ -13,7 +13,7 @@ class UserAuthLoadInstanceFacebookListener implements EventListener {
 	 * @see EventListener::execute()
 	 */
 	public function execute($eventObj, $className, $eventName) {
-		if (MODULE_FACEBOOK) UserAuthFacebook::loadInstance();
+		if (MODULE_FACEBOOK) UserAuthFacebook::$eventName();
 	}
 }
 ?>
