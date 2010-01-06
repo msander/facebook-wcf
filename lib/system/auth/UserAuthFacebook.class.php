@@ -8,19 +8,6 @@ require_once(WCF_DIR.'lib/system/auth/UserAuthDefault.class.php');
  * @license	GneX*Lizenz
  */
 class UserAuthFacebook extends UserAuthDefault {
-
-	/**
-	 * Creates a new UserAuthDefault object.
-	 */
-	public function __construct() {
-		if (!MODULE_FACEBOOK) {
-			require_once(WCF_DIR.'lib/system/exception/NamedUserException.class.php');
-			throw new NamedUserException(WCF::getLanguage()->get('org.gnex.facebook.disabled'));
-		}
-		
-		parent::__construct();
-	}
-	
 	/**
 	 * Loads instance of UserAuthFacebook instead of UserAuthDefault
 	 *
