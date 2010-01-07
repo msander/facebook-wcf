@@ -224,7 +224,7 @@ class FacebookLoginAction extends AbstractAction {
 		  
 		  // forward to index page
 		  WCF::getTPL()->assign(array(
-			  'url' => 'index.php?page=Startseite'.SID_ARG_1ST,
+			  'url' => 'index.php'.SID_ARG_1ST,
 		  	'message' => WCF::getLanguage()->get($this->message, array('$username' => $user->username, '$email' => $user->email))
 		  ));
 		  WCF::getTPL()->display('redirect');
