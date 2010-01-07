@@ -28,7 +28,7 @@ class FacebookLoginAction extends AbstractAction {
 	 * Creates a new LoginForm object.
 	 */
 	public function __construct() {
-		if (!MODULE_FACEBOOK) {
+		if (!MODULE_FACEBOOK || !FACEBOOK_KEY_PUBLIC || !FACEBOOK_KEY_PRIVATE) {
 			require_once(WCF_DIR.'lib/system/exception/NamedUserException.class.php');
 			throw new NamedUserException(WCF::getLanguage()->get('org.gnex.facebook.disabled'));
 		}

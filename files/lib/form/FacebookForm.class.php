@@ -84,7 +84,7 @@ class FacebookForm extends AbstractForm {
 	 * @see Page::show()
 	 */
 	public function show() {
-		if (!MODULE_FACEBOOK) {
+		if (!MODULE_FACEBOOK || !FACEBOOK_KEY_PUBLIC || !FACEBOOK_KEY_PRIVATE) {
 			require_once(WCF_DIR.'lib/system/exception/NamedUserException.class.php');
 			throw new NamedUserException(WCF::getLanguage()->get('org.gnex.facebook.disabled'));
 		}

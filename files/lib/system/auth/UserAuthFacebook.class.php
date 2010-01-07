@@ -14,7 +14,7 @@ class UserAuthFacebook extends UserAuthDefault {
 	 *
 	 */
 	public static function loadInstance() {
-		if (self::$instance === null && self::isResponsible() && MODULE_FACEBOOK) self::$instance = new UserAuthFacebook();
+		if (self::$instance === null && self::isResponsible() && MODULE_FACEBOOK && FACEBOOK_KEY_PUBLIC && FACEBOOK_KEY_PRIVATE) self::$instance = new UserAuthFacebook();
 	}
 	
 	protected static function isResponsible() {
