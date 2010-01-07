@@ -6,7 +6,7 @@ require_once(WCF_DIR.'lib/system/auth/UserAuthFacebook.class.php');
  * 
  * @author	Tim Wittenberg
  * @copyright	GneX
- * @license	GneX*Lizenz
+ * @license	GNU General Public License <http://opensource.org/licenses/gpl-3.0.html>
  */
 class UserAuthLoadInstanceFacebookListener implements EventListener {
 	/**

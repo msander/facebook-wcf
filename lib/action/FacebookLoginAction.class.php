@@ -14,7 +14,7 @@ require_once(WCF_DIR.'lib/system/language/Language.class.php');
  * 
  * @author	Tim Wittenberg
  * @copyright	GneX
- * @license	GneX*Lizenz
+ * @license	GNU General Public License <http://opensource.org/licenses/gpl-3.0.html>
  */
 class FacebookLoginAction extends AbstractAction {
 	public $useCookies = 1;
