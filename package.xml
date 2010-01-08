@@ -4,10 +4,11 @@
 	<packageInformation>
 		<packagename><![CDATA[Facebook-Verbindung]]></packagename>
 		<packagedescription><![CDATA[Dieses Plugin verbindet Facebook mit dem WCF. So ist z.B. ein Direktlogin via Facebook möglich.]]></packagedescription>
-		<version>1.0.6</version>
-		<date>2010-01-07</date>
+    <version>1.0.7</version>
+		<date>2010-01-08</date>
 		<unique>1</unique>
 		<plugin>com.woltlab.wcf.form.user</plugin>
+		<packageurl><![CDATA[http://GneX.org]]></packageurl>
 	</packageInformation>
 
 	<authorinformation>
@@ -22,6 +23,7 @@
 
   <optionalpackages>		
 		<optionalpackage file="optionals/org.gnex.facebook.auth.wbb.tar">org.gnex.facebook.auth.wbb</optionalpackage>
+		<optionalpackage file="optionals/org.gnex.facebook.auth.profile.tar">org.gnex.facebook.auth.profile</optionalpackage>
 	</optionalpackages>
 
 	<instructions type="install">
@@ -57,6 +59,9 @@
 		<templatepatch fuzzfactor="2">templates.diff</templatepatch>
 	</instructions>
 	<instructions type="update" fromversion="1.0.5">
+		<files>files.tar</files>
+	</instructions>
+	<instructions type="update" fromversion="1.0.6">
 		<files>files.tar</files>
 	</instructions>
 </package>
