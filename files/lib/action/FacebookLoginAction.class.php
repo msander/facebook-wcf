@@ -77,7 +77,7 @@ class FacebookLoginAction extends AbstractAction {
         );
         $facebookUser = $this->facebook->api_client->users_getInfo($this->facebookID, $facebookFields);
         if($facebookUser[0]['uid'] && $facebookUser[0]['username'] && $facebookUser[0]['proxied_email'] && $facebookUser[0]['email_hashes'] && $facebookUser[0]['birthday_date'] && $facebookUser[0]['sex'] && UserUtil::isValidUsername($facebookUser[0]['username']) && UserUtil::isAvailableUsername($facebookUser[0]['username']) && UserUtil::isValidEmail($facebookUser[0]['proxied_email']) && UserUtil::isAvailableEmail($facebookUser[0]['proxied_email'])) {
-          $this->createNewUser($facebookUser[0]['username'], $facebookUser[0]['proxied_email'], $facebookUser[0]['email_hashes'], $facebookUser[0]['birthday_date'], $facebookUser[0]['sex']);
+          $this->createNewUser($facebookUser[0]['username'], $facebookUser[0]['proxied_email'], $facebookUser[0]['email_hashes'], $facebookUser[0]['birthday_date'], $facebookUser[0]['sex'], $facebookUser[0]['pic_square']);
         } else {
           header('Location: index.php?page=Register'.SID_ARG_2ND_NOT_ENCODED);
           exit();
@@ -124,7 +124,7 @@ class FacebookLoginAction extends AbstractAction {
 		return $availableLanguages;
 	}
 	
-	public function createNewUser($username, $email, $emailHash, $birthday, $gender) {
+	public function createNewUser($username, $email, $emailHash, $birthday, $gender, $pic_square) {
     $password = UserRegistrationUtil::getNewPassword((REGISTER_PASSWORD_MIN_LENGTH > 9 ? REGISTER_PASSWORD_MIN_LENGTH : 9));
     
     $groups = Group::getAccessibleGroups(array(), array(Group::GUESTS, Group::EVERYONE, Group::USERS));
@@ -156,11 +156,19 @@ class FacebookLoginAction extends AbstractAction {
 			$groups = Group::getGroupIdsByType(array(Group::EVERYONE, Group::GUESTS));
 		}
     
-    if(($user = UserEditor::create($username, $email, $password, $groups, $activeOptions, $additionalFields, $visibleLanguages, $addDefaultGroups))) {
+    if(!($user = UserEditor::create($username, $email, $password, $groups, $activeOptions, $additionalFields, $visibleLanguages, $addDefaultGroups))) {
+      header('Location: index.php?page=Register'.SID_ARG_2ND_NOT_ENCODED);
+      exit;
+    }
+    
       // update facebook
       $facebookIdentifierSalt = StringUtil::getRandomID();
       $facebookIdentifierHash = StringUtil::getDoubleSaltedHash($this->facebookID, $facebookIdentifierSalt);
 		  $user->update('', '', '', null, null, array('facebookIdentifier' => $this->facebookID, 'facebookIdentifierHash' => $facebookIdentifierHash, 'facebookIdentifierSalt' => $facebookIdentifierSalt));
+		  
+		  
+		  // TODO: download picture from $pic_square (if available) and save as avatar
+		  
       #$this->facebook->api_client->connect_registerUsers(array('email_hash' => $emailHash, 'account_id' => $this->facebookID));
       
 		  // set cookies
@@ -229,10 +237,6 @@ class FacebookLoginAction extends AbstractAction {
 		  ));
 		  WCF::getTPL()->display('redirect');
 		  exit;
-    } else {
-      header('Location: index.php?page=Register'.SID_ARG_2ND_NOT_ENCODED);
-      exit();
-    }
 	}
 	
 	/**
