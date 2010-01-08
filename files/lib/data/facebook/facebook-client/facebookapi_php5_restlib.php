@@ -32,7 +32,7 @@
 // +---------------------------------------------------------------------------+
 //
 
-include_once 'jsonwrapper/jsonwrapper.php';
+require_once(WCF_DIR.'lib/data/facebook/jsonwrapper/jsonwrapper.php');
 
 class FacebookRestClient {
   public $secret;
