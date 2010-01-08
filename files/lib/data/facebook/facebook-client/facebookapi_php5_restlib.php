@@ -32,8 +32,6 @@
 // +---------------------------------------------------------------------------+
 //
 
-require_once(WCF_DIR.'lib/data/facebook/jsonwrapper/jsonwrapper.php');
-
 class FacebookRestClient {
   public $secret;
   public $session_key;
