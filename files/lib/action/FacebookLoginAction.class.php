@@ -51,7 +51,7 @@ class FacebookLoginAction extends AbstractAction {
     $this->facebookID = $this->facebook->get_loggedin_user();
     
     #$this->url = WCF::getSession()->requestURI;
-    $this->url = $_SERVER['HTTP_REFERER'];
+    $this->url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : PAGE_URL;
 	}
 	
 	/**
