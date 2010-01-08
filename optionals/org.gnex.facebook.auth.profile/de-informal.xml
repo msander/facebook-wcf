@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language SYSTEM "http://www.woltlab.com/DTDs/language.dtd">
+<language languagecode="de-informal">
+	<category name="org.gnex.facebook">
+	  <item name="org.gnex.facebook.profile.link.description"><![CDATA[Facebook-Profil von ]]></item>
+	  <item name="org.gnex.facebook.profile.link.wdb"><![CDATA[ besuchen]]></item>
+	</category>
+	<category name="wcf.user.option">
+		<item name="wcf.user.option.facebookProfile"><![CDATA[Facebook]]></item>
+		<item name="wcf.user.option.facebookProfile.description"><![CDATA[ ]]></item>
+	</category>
+	<category name="wcf.user.profile">
+		<item name="wcf.user.profile.facebookProfile.title"><![CDATA[Facebook]]></item>
+	</category>
+</language>
