@@ -4,8 +4,8 @@
 	<packageInformation>
 		<packagename><![CDATA[Facebook-Verbindung (Profilerweiterung)]]></packagename>
 		<packagedescription><![CDATA[Dieses Plugin fügt im Profil und in der MessageSidebar einen Link zum Facebook-Profil hinzu.]]></packagedescription>
-    <version>1.0.0</version>
-		<date>2010-01-08</date>
+    <version>1.0.1</version>
+		<date>2010-01-22</date>
 		<unique>1</unique>
 		<plugin>com.woltlab.wcf</plugin>
 		<packageurl><![CDATA[http://GneX.org]]></packageurl>
@@ -22,10 +22,15 @@
 	</requiredPackages>
 
 	<instructions type="install">
-		<eventlistener>useroptions.xml</eventlistener>
+		<useroptions>useroptions.xml</useroptions>
 		<eventlistener>eventlistener.xml</eventlistener>
 		<files>files.tar</files>
 		<languages languagecode="de">de.xml</languages>
 		<languages languagecode="de-informal">de-informal.xml</languages>
+	</instructions>
+
+	<instructions type="update" fromversion="1.0.0">
+		<useroptions>useroptions.xml</useroptions>
+		<eventlistener>eventlistener.xml</eventlistener>
 	</instructions>
 </package>
