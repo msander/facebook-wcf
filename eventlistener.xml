@@ -7,5 +7,22 @@
 			<eventName>loadInstance</eventName>
 			<listenerClassFile>lib/system/event/listener/UserAuthLoadInstanceFacebookListener.class.php</listenerClassFile>
 		</eventlistener>
+		
+		<!-- register form //-->
+		<eventlistener>
+			<eventclassname>RegisterForm</eventclassname>
+			<eventname>assignVariables</eventname>
+			<listenerclassfile>lib/system/event/listener/RegisterFormFacebookListener.class.php</listenerclassfile>
+		</eventlistener>
+		<eventlistener>
+			<eventclassname>RulesRegisterPage</eventclassname>
+			<eventname>assignVariables</eventname>
+			<listenerclassfile>lib/system/event/listener/RegisterFormFacebookListener.class.php</listenerclassfile>
+		</eventlistener>
+		<eventlistener>
+			<eventclassname>RegisterDisclaimerPage</eventclassname>
+			<eventname>assignVariables</eventname>
+			<listenerclassfile>lib/system/event/listener/RegisterFormFacebookListener.class.php</listenerclassfile>
+		</eventlistener>
 	</import>
 </data>
