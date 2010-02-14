@@ -29,7 +29,7 @@ class RegisterFormFacebookListener implements EventListener {
 	}
 	
 	/**
-	 * since register modules are often changed by woltlab, the easiest way to plugin the the payment process header is by javascript
+	 * since register modules are often changed by woltlab, the easiest way to plugin the facebook button is by javascript
 	 */
 	protected function getFacebookButton() {
 		return '<script type="text/javascript">
