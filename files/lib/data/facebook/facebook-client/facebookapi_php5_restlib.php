@@ -32,6 +32,8 @@
 // +---------------------------------------------------------------------------+
 //
 
+include_once 'jsonwrapper/jsonwrapper.php';
+
 class FacebookRestClient {
   public $secret;
   public $session_key;
