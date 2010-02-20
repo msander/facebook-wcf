@@ -66,7 +66,7 @@ class FacebookLoginAction extends AbstractAction {
     }
     
     if(($this->user = UserAuth::getInstance()->loginManuallyFacebook($this->facebookID)) == false) {
-      if($this->facebook->api_client->users_isAppUser($this->facebookID) == false) {
+      #if($this->facebook->api_client->users_isAppUser($this->facebookID) == false) {
         $facebookFields = array(
           'uid',
           'username',
@@ -82,10 +82,10 @@ class FacebookLoginAction extends AbstractAction {
           header('Location: index.php?page=Register'.SID_ARG_2ND_NOT_ENCODED);
           exit();
         }
-      } else {
-			  require_once(WCF_DIR.'lib/system/exception/NamedUserException.class.php');
-			  throw new NamedUserException(WCF::getLanguage()->get('org.gnex.facebook.noVerb'));
-      }
+      #} else {
+			  #require_once(WCF_DIR.'lib/system/exception/NamedUserException.class.php');
+			  #throw new NamedUserException(WCF::getLanguage()->get('org.gnex.facebook.noVerb'));
+      #}
     }
 		
 		// set cookies
