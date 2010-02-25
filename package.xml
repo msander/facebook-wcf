@@ -4,8 +4,8 @@
 	<packageInformation>
 		<packagename><![CDATA[Facebook-Verbindung]]></packagename>
 		<packagedescription><![CDATA[Dieses Plugin verbindet Facebook mit dem WCF. So ist z.B. ein Direktlogin via Facebook möglich.]]></packagedescription>
-    <version>1.1.2</version>
-		<date>2010-02-14</date>
+    <version>1.1.3</version>
+		<date>2010-02-25</date>
 		<unique>1</unique>
 		<plugin>com.woltlab.wcf.form.user</plugin>
 		<packageurl><![CDATA[http://GneX.org]]></packageurl>
@@ -72,6 +72,10 @@
 		<files>files.tar</files>
 	</instructions>
 	<instructions type="update" fromversion="1.1.1">
+		<files>files.tar</files>
+	</instructions>
+	<instructions type="update" fromversion="1.1.2">
+		<eventlistener>eventlistener.xml</eventlistener>
 		<files>files.tar</files>
 	</instructions>
 </package>

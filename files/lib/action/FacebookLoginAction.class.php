@@ -61,8 +61,13 @@ class FacebookLoginAction extends AbstractAction {
 		parent::execute();
 		
 		if(!isset($this->facebookID) || empty($this->facebookID)) {
-      header('Location: index.php?page=Register'.SID_ARG_2ND_NOT_ENCODED);
-      exit();
+		  WCF::getTPL()->assign(array(
+			  'url' => 'index.php?page=Register'.SID_ARG_2ND_NOT_ENCODED,
+			  'message' => WCF::getLanguage()->get('org.gnex.facebook.register'),
+			  'wait' => 5
+	    ));
+	    WCF::getTPL()->display('redirect');
+	    exit;
     }
     
     if(($this->user = UserAuth::getInstance()->loginManuallyFacebook($this->facebookID)) == false) {
@@ -76,11 +81,19 @@ class FacebookLoginAction extends AbstractAction {
           'sex'
         );
         $facebookUser = $this->facebook->api_client->users_getInfo($this->facebookID, $facebookFields);
-        if($facebookUser[0]['uid'] && $facebookUser[0]['username'] && $facebookUser[0]['proxied_email'] && $facebookUser[0]['email_hashes'] && $facebookUser[0]['birthday_date'] && $facebookUser[0]['sex'] && UserUtil::isValidUsername($facebookUser[0]['username']) && UserUtil::isAvailableUsername($facebookUser[0]['username']) && UserUtil::isValidEmail($facebookUser[0]['proxied_email']) && UserUtil::isAvailableEmail($facebookUser[0]['proxied_email'])) {
-          $this->createNewUser($facebookUser[0]['username'], $facebookUser[0]['proxied_email'], $facebookUser[0]['email_hashes'], $facebookUser[0]['birthday_date'], $facebookUser[0]['sex']);
+        $firstName = $facebookUser[0]['first_name'];
+        $lastName = $facebookUser[0]['last_name'];
+        $username = (isset($facebookUser[0]['username']) && !empty($facebookUser[0]['username'])) ? $facebookUser[0]['username'] : $firstName.'.'.$lastName{0};
+        if($facebookUser[0]['uid'] && $username && $facebookUser[0]['proxied_email'] && $facebookUser[0]['email_hashes'] && $facebookUser[0]['birthday_date'] && $facebookUser[0]['sex'] && UserUtil::isValidUsername($username) && UserUtil::isAvailableUsername($username) && UserUtil::isValidEmail($facebookUser[0]['proxied_email']) && UserUtil::isAvailableEmail($facebookUser[0]['proxied_email'])) {
+          $this->createNewUser($username, $facebookUser[0]['proxied_email'], $facebookUser[0]['email_hashes'], $facebookUser[0]['birthday_date'], $facebookUser[0]['sex']);
         } else {
-          header('Location: index.php?page=Register'.SID_ARG_2ND_NOT_ENCODED);
-          exit();
+		      WCF::getTPL()->assign(array(
+			      'url' => 'index.php?page=Register'.SID_ARG_2ND_NOT_ENCODED,
+			      'message' => WCF::getLanguage()->get('org.gnex.facebook.register'),
+			      'wait' => 5
+	      	));
+	      	WCF::getTPL()->display('redirect');
+	    	  exit;
         }
       #} else {
 			  #require_once(WCF_DIR.'lib/system/exception/NamedUserException.class.php');

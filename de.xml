@@ -40,6 +40,7 @@
 		<item name="org.gnex.facebook.reUpdateSuccess"><![CDATA[Ihr Benutzerkonto wurde erfolgreich mit Facebook verbunden.]]></item>
 		<item name="org.gnex.facebook.noVerb"><![CDATA[Die angegebene Facebook-Verbindung konnte keinem Benutzer zugeordnet werden.]]></item>
 		<item name="org.gnex.facebook.noSettings"><![CDATA[Leider konnten die erforderlichen Einstellungen bei Facebook nicht gesetzt werden.]]></item>
+		<item name="org.gnex.facebook.register"><![CDATA[Leider konnten die erforderlichen Daten von Facebook nicht ermittelt werden. Sie werden daher zur normalen Registrierung weitergeleitet.]]></item>
 	</category>
 	<category name="wcf.user.usercp">
 		<item name="wcf.user.usercp.menu.link.profile.facebook"><![CDATA[Facebook]]></item>
