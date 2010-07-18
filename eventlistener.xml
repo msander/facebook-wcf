@@ -1,7 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE data SYSTEM "http://www.woltlab.com/DTDs/eventListeners.dtd">
-<data>	
+<data>
 	<import>
+		<eventlistener>
+			<eventclassname>UserLoginForm</eventclassname>
+			<eventname>readData</eventname>
+			<listenerclassfile>lib/system/event/listener/UserLoginFacebookListener.class.php</listenerclassfile>
+		</eventlistener>
+	</import>
+	<delete>
 		<eventlistener>
 			<eventClassName>UserAuth</eventClassName>
 			<eventName>loadInstance</eventName>
@@ -24,5 +31,5 @@
 			<eventname>assignVariables</eventname>
 			<listenerclassfile>lib/system/event/listener/RegisterFormFacebookListener.class.php</listenerclassfile>
 		</eventlistener>
-	</import>
+	</delete>
 </data>

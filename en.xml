@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language SYSTEM "http://www.woltlab.com/DTDs/language.dtd">
+<language languagecode="en">
+	<category name="wcf.acp.option">
+		<item name="wcf.acp.option.module_facebook"><![CDATA[Facebook]]></item>
+		<item name="wcf.acp.option.module_facebook.description"><![CDATA[Allows users to login to the wcf with a facebook account.]]></item>
+		<item name="wcf.acp.option.category.facebook"><![CDATA[Facebook]]></item>
+		<item name="wcf.acp.option.category.facebook.description"><![CDATA[]]></item>
+		<item name="wcf.acp.option.facebook_appid"><![CDATA[Applicaton Id]]></item>
+		<item name="wcf.acp.option.facebook_appid.description"><![CDATA[Enter your AppID.]]></item>
+		<item name="wcf.acp.option.facebook_secret"><![CDATA[Secret Key]]></item>
+		<item name="wcf.acp.option.facebook_secret.description"><![CDATA[Enter your SecretKey.]]></item>
+	</category>
+</language>

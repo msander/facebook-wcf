@@ -1,10 +1,10 @@
 --- C:/LocalServer/htdocs/login.tpl	Fri Mar 20 12:15:32 2009
 +++ C:/LocalServer/htdocs/loginPatch.tpl	Thu Jan 07 16:46:11 2010
-@@ -79,6 +79,7 @@
+@@ -79,7 +79,6 @@
  				<div class="formElement">
  					<div class="formField">
  						<ul class="formOptionsLong">
-+						  <li>{include file="facebookLogin"}</li>
+-						  <li>{include file="facebookLogin"}</li>
  							<li><img src="{icon}lostPasswordS.png{/icon}" alt="" /> <a href="index.php?form=LostPassword{@SID_ARG_2ND}">{lang}wcf.user.lostPassword.title{/lang}</a></li>
  							{if !REGISTER_DISABLED && REGISTER_ACTIVATION_METHOD == 1}<li><img src="{icon}registerS.png{/icon}" alt="" /> <a href="index.php?page=Register&amp;action=enable{@SID_ARG_2ND}">{lang}wcf.user.register.activation{/lang}</a></li>{/if}
  						</ul>

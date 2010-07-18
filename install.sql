@@ -1,3 +1,7 @@
-ALTER TABLE wcf1_user ADD facebookIdentifier varchar(255) NOT NULL AFTER salt ;
-ALTER TABLE wcf1_user ADD facebookIdentifierHash varchar(255) NOT NULL AFTER facebookIdentifier ;
-ALTER TABLE wcf1_user ADD facebookIdentifierSalt varchar(255) NOT NULL AFTER facebookIdentifierHash ;
+DROP TABLE IF EXISTS wcf1_user_to_facebook;
+CREATE TABLE wcf1_user_to_facebook (
+	userID INT(10) NOT NULL,
+	facebookID INT(10) NOT NULL,
+	UNIQUE(userID),
+	UNIQUE(facebookID)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;

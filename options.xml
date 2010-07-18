@@ -4,12 +4,7 @@
 	<import>
 		<categories>
 			<category name="facebook">
-			</category>	
-			<category name="facebook.general">
-				<parent>facebook</parent>
-			</category>
-			<category name="facebook.general.general">
-				<parent>facebook.general</parent>
+				<parent>user</parent>
 			</category>
 		</categories>
 			
@@ -19,18 +14,24 @@
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
 			</option>
-			
-			<option name="facebook_key_public">
-				<categoryname>facebook.general.general</categoryname>
+			<option name="facebook_appid">
+				<categoryname>facebook</categoryname>
 				<optiontype>text</optiontype>
 				<defaultvalue></defaultvalue>
 			</option>
-			
-			<option name="facebook_key_private">
-				<categoryname>facebook.general.general</categoryname>
+			<option name="facebook_secret">
+				<categoryname>facebook</categoryname>
 				<optiontype>text</optiontype>
 				<defaultvalue></defaultvalue>
 			</option>
 		</options>
 	</import>
+	
+	<delete>
+		<category name="facebook.general"/>
+		<category name="facebook.general.general"/>
+
+		<option name="facebook_key_public"/>
+		<option name="facebook_key_private"/>
+	</delete>
 </data>

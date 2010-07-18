@@ -1,6 +1,30 @@
-{if !$this->user->userID && !LOGIN_USE_CAPTCHA && MODULE_FACEBOOK && FACEBOOK_KEY_PUBLIC && FACEBOOK_KEY_PRIVATE}
-<script src="http://static.new.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/de_DE" type="text/javascript"></script>
-  <fb:login-button v="2" size="medium" onlogin="facebook_onlogin_ready()">{lang}org.gnex.facebook.button.login{/lang}</fb:login-button>
-<script type="text/javascript">FB.init("{FACEBOOK_KEY_PUBLIC}", "xd_receiver.htm");</script>
-<script src="{@RELATIVE_WCF_DIR}lib/data/facebook/javascript/fbconnect.js" type="text/javascript"></script>
-{/if}
+<div class="formElement">
+	<div class="formField">
+		<div id="fb-root"></div>
+		<script type="text/javascript">
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId   : '{FACEBOOK_APPID}',
+				session : {$session|json_encode}, // don't refetch the session when PHP already has it
+				status  : true, // check login status
+				cookie  : true, // enable cookies to allow the server to access the session
+				xfbml   : true // parse XFBML
+			});
+
+			// whenever the user logs in, we refresh the page
+			FB.Event.subscribe('auth.login', function() {
+				window.location.reload();
+			});
+		};
+
+		(function() {
+			var e = document.createElement('script');
+			e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+			e.async = true;
+			document.getElementById('fb-root').appendChild(e);
+		}());
+		</script>
+
+		<a href="{$loginUrl}"><img src="http://static.ak.fbcdn.net/rsrc.php/zB6N8/hash/4li2k73z.gif"></a>
+	</div>
+</div>
