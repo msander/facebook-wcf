@@ -312,10 +312,11 @@ class UserLoginFacebookListener implements EventListener {
 		}
 
 		try {
+			$avatarID = 0;
 			$tmpName = FileUtil::downloadFileFromHttp($avatarURL, 'avatar');
 			$avatarID = AvatarEditor::create($tmpName, $avatarURL, 'avatarURL', $user->userID);
 		}
-		catch (SystemException $e) {
+		catch (Exception $e) {
 
 			// skip, download is not that important
 			return false;
