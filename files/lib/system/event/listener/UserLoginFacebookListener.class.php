@@ -261,6 +261,7 @@ class UserLoginFacebookListener implements EventListener {
 				$language->setLocale();
 
 				// send mail
+				require_once(WCF_DIR.'lib/data/mail/Mail.class.php');
 				$mail = new Mail(
 					MAIL_ADMIN_ADDRESS,
 					$language->get('wcf.user.register.notification.mail.subject', array(
