@@ -313,6 +313,7 @@ class UserLoginFacebookListener implements EventListener {
 
 		try {
 			$tmpName = FileUtil::downloadFileFromHttp($avatarURL, 'avatar');
+			$avatarID = AvatarEditor::create($tmpName, $avatarURL, 'avatarURL', $user->userID);
 		}
 		catch (SystemException $e) {
 
@@ -320,13 +321,14 @@ class UserLoginFacebookListener implements EventListener {
 			return false;
 		}
 
-		$avatarID = AvatarEditor::create($tmpName, $avatarURL, 'avatarURL', $user->userID);
+		if($avatarID) {
 
-		// update user
-		$sql = "UPDATE	wcf".WCF_N."_user
-			SET	avatarID = ".$avatarID."
-			WHERE	userID = ".$user->userID;
-		return WCF::getDB()->sendQuery($sql);
+			// update user
+			$sql = "UPDATE	wcf".WCF_N."_user
+				SET	avatarID = ".$avatarID."
+				WHERE	userID = ".$user->userID;
+			return WCF::getDB()->sendQuery($sql);
+		}
 	}
 }
 ?>
