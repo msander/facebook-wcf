@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE language SYSTEM "http://www.woltlab.com/DTDs/language.dtd">
-<language languagecode="de">
+<language languagecode="de-informal">
 	<category name="wcf.acp.option">
 		<item name="wcf.acp.option.module_facebook"><![CDATA[Facebook]]></item>
 		<item name="wcf.acp.option.module_facebook.description"><![CDATA[Erlaubt den Login mit Hilfe eines Facebook Accounts.]]></item>

@@ -11,4 +11,9 @@
 		<item name="wcf.acp.option.facebook_secret"><![CDATA[Secret Key]]></item>
 		<item name="wcf.acp.option.facebook_secret.description"><![CDATA[Enter your SecretKey.]]></item>
 	</category>
+	<category name="wcf.facebook">
+		<item name="wcf.facebook.title"><![CDATA[Facebook]]></item>
+		<item name="wcf.facebook.status.connected"><![CDATA[Your are successfully connected to facebook.]]></item>
+		<item name="wcf.facebook.status.alreadyAssigned"><![CDATA[Your facebook login was already linked with the user &laquo;{$username}&raquo;.]]></item>
+	</category>
 </language>
