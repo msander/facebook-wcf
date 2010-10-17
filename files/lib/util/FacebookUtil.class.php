@@ -78,7 +78,7 @@ class FacebookUtil {
 		return $user->userID ? $user : null;
 	}
 	
-	protected static function getSesssion() {
+	protected static function getSession() {
 		// Create our Application instance.
 		self::$facebook = new Facebook(array(
 			'appId'  => FACEBOOK_APPID,
@@ -203,7 +203,7 @@ class FacebookUtil {
 		}
 
 		// user already exists, and login is linked to the current account
-		else if($user && $user->userID == WCF::getUser()) {
+		else if($user && $user->userID == WCF::getUser()->userID) {
 			WCF::getTPL()->append('additionalFields', '<fieldset>
 				<legend>'.WCF::getLanguage()->get('wcf.facebook.title').'</legend>
 				'.WCF::getLanguage()->get('wcf.facebook.status.connected').'
