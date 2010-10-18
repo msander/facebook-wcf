@@ -66,17 +66,6 @@ class FacebookUtil {
 
 		return WCF::getDB()->sendQuery($sql);
 	}
-
-	/**
-	 * is there an existing user matching the given email address from facebook?
-	 *
-	 * @param	array		$me
-	 * @return	User
-	 */
-	protected static function getEmailUser($me) {
-		$user = new User(null, null, null, $me['email']);
-		return $user->userID ? $user : null;
-	}
 	
 	protected static function getSession() {
 		// Create our Application instance.
@@ -263,9 +252,18 @@ class FacebookUtil {
 		// facebook permissions granted but no login exists
 		if(!$user) {
 
-			// facebook is ultimativly trusted, if you get an account there,
-			// you can get the account with the same email here!
-			$user = self::getEmailUser($me);
+			// check if email address is already in use
+			$user = new User(null, null, null, $me['email']);
+			
+			// email is already in use, stop!
+			if($user && $user->userID) {
+				WCF::getTPL()->append('userMessages', '<p class="error">
+					'.WCF::getLanguage()->getDynamicVariable('wcf.facebook.status.alreadyEmail', array(
+						'username' => $user->username
+					)).'
+				</p>');
+				return;
+			}
 
 			// totally unknown, add a new user
 			if(!$user) {

@@ -15,5 +15,6 @@
 		<item name="wcf.facebook.title"><![CDATA[Facebook]]></item>
 		<item name="wcf.facebook.status.connected"><![CDATA[Your are successfully connected to facebook.]]></item>
 		<item name="wcf.facebook.status.alreadyAssigned"><![CDATA[Your facebook login was already linked with the user &laquo;{$username}&raquo;.]]></item>
+		<item name="wcf.facebook.status.alreadyEmail"><![CDATA[The email address you use in facebook is already assigned to the user &laquo;{$username}&raquo;.]]></item>
 	</category>
 </language>
