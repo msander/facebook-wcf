@@ -36,12 +36,19 @@ class UserLoginFacebookListener implements EventListener {
 			// password validations can be skipped if facebook auth is successfully
 			case 'AccountManagementForm':
 				// validate
-				if(FacebookUtil::isValidFacebookUser()) {
+				if($eventName == 'validate' && FacebookUtil::isValidFacebookUser()) {
 
 					// bypass password query with a little hack
 					$password = UserRegistrationUtil::getNewPassword((REGISTER_PASSWORD_MIN_LENGTH > 9 ? REGISTER_PASSWORD_MIN_LENGTH : 9));
 					WCF::getUser()->password = StringUtil::getDoubleSaltedHash($password, WCF::getUser()->salt);
 					$eventObj->password = $password;
+				}
+				
+				// hide password input
+				else if($eventName == 'assignVariables' && FacebookUtil::hasFacebookAccount(WCF::getUser()->userID)) {
+					WCF::getTPL()->append('additionalFields', '<script type="text/javascript">
+						$($("password").parentNode.parentNode).hide();
+					</script>');
 				}
 			break;
 		}

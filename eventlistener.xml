@@ -13,6 +13,11 @@
 			<listenerclassfile>lib/system/event/listener/UserLoginFacebookListener.class.php</listenerclassfile>
 		</eventlistener>
 		<eventlistener>
+			<eventclassname>AccountManagementForm</eventclassname>
+			<eventname>assignVariables</eventname>
+			<listenerclassfile>lib/system/event/listener/UserLoginFacebookListener.class.php</listenerclassfile>
+		</eventlistener>
+		<eventlistener>
 			<eventclassname>UserProfileEditForm</eventclassname>
 			<eventname>assignVariables</eventname>
 			<listenerclassfile>lib/system/event/listener/UserLoginFacebookListener.class.php</listenerclassfile>

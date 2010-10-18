@@ -43,7 +43,7 @@ class FacebookUtil {
 	 * @param	integer		$userID
 	 * @return	boolean
 	 */
-	protected static function hasFacebookAccount($userID) {
+	public static function hasFacebookAccount($userID) {
 		$sql = "SELECT		utb.facebookID
 			FROM 		wcf".WCF_N."_user_to_facebook utb
 			WHERE		utb.userID = ".intval($userID);
