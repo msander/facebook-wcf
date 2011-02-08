@@ -181,6 +181,7 @@ class FacebookUtil {
 
 		// facebook login not used yet, facebook permissions granted, update account info
 		if(!$user) {
+			$user = WCF::getUser();
 
 			// update avatar (only if avatar is not given)
 			self::updateAvatar('https://graph.facebook.com/'.$me['id'].'/picture', $user);
@@ -421,7 +422,7 @@ class FacebookUtil {
 	 */
 	protected static function updateAvatar($avatarURL, $user) {
 		// existing avatar? skip facebook download
-		if ($user->avatarID || empty($avatarURL)) {
+		if (!$user || $user->avatarID || empty($avatarURL)) {
 			return false;
 		}
 
