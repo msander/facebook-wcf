@@ -17,7 +17,7 @@ class FacebookUtil {
 	/**
 	 * facebook api object
 	 *
-	 * @var Facebok
+	 * @var Facebook
 	 */
 	public static $facebook;
 
@@ -267,7 +267,7 @@ class FacebookUtil {
 			}
 
 			// totally unknown, add a new user
-			if(!$user) {
+			if(!$user->userID) {
 				$user = self::registerUser($me);
 			}
 
