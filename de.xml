@@ -17,4 +17,8 @@
 		<item name="wcf.facebook.status.alreadyAssigned"><![CDATA[Der Benutzer &laquo;{$username}&raquo; benutzt ihren Facebook Login bereits.]]></item>
 		<item name="wcf.facebook.status.alreadyEmail"><![CDATA[Der Benutzer &laquo;{$username}&raquo; benutzt ihre bei Facebook hinterlegte E-Mail Adresse bereits.]]></item>
 	</category>
+	<category name="wcf.user.option">
+		<item name="wcf.user.option.profile.contact.facebook"><![CDATA[Facebook]]></item>
+		<item name="wcf.user.option.profile.contact.facebook.description"><![CDATA[Geben Sie ihren Facebook Namen ein.]]></item>
+	</category>
 </language>

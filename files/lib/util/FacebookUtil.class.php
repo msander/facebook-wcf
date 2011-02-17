@@ -180,7 +180,7 @@ class FacebookUtil {
 		$user = self::getFacebookEnabledUser($me);
 
 		// facebook login not used yet, facebook permissions granted, update account info
-		if(!$user) {
+		if(!$user && WCF::getUser()->userID) {
 			$user = WCF::getUser();
 
 			// update avatar (only if avatar is not given)
@@ -190,6 +190,12 @@ class FacebookUtil {
 			self::addFacebookUser($me['id'], $user);
 
 			return true;
+		}
+		
+		// facebook login not used yet, current user not logged in, so just forward to login page
+		else if(!$user && WCF::getUser()->userID == 0) {
+			HeaderUtil::redirect('index.php?form=UserLogin');
+			exit;
 		}
 
 		// user already exists, and login is linked to the current account
@@ -214,7 +220,7 @@ class FacebookUtil {
 	/**
 	 * @see UserLoginForm::readData
 	 */
-	public static function loginOrRegister($eventObj) {
+	public static function loginOrRegister() {
 
 		$session = self::getSession();
 
@@ -277,22 +283,7 @@ class FacebookUtil {
 			// either user is new, oder just got a link, but add a facebook link
 			self::addFacebookUser($me['id'], $user);
 		}
-
-		if($user) {
-
-			// UserLoginForm should not write cookie, since interfaces only support unhashed password
-			$eventObj->useCookies = 0;
-
-			// set cookies
-			UserAuth::getInstance()->storeAccessData($user, $user->username, $user->password);
-			HeaderUtil::setCookie('password', $user->password, TIME_NOW + 365 * 24 * 3600);
-
-			// save cookie and redirect
-			$eventObj->user = $user;
-			$eventObj->save();
-
-			exit;
-		}
+		return $user;
 	}
 
 	/**

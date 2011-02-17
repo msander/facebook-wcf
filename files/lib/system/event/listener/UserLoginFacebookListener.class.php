@@ -22,7 +22,23 @@ class UserLoginFacebookListener implements EventListener {
 			// login or register with facebook
 			case 'UserLoginForm':
 				// readData
-				FacebookUtil::loginOrRegister($eventObj);
+				$user = FacebookUtil::loginOrRegister($eventObj);		
+
+				if($user) {
+
+					// UserLoginForm should not write cookie, since interfaces only support unhashed password
+					$eventObj->useCookies = 0;
+
+					// set cookies
+					UserAuth::getInstance()->storeAccessData($user, $user->username, $user->password);
+					HeaderUtil::setCookie('password', $user->password, TIME_NOW + 365 * 24 * 3600);
+
+					// save cookie and redirect
+					$eventObj->user = $user;
+					$eventObj->save();
+
+					exit;
+				}
 			break;
 			
 			// registered user links with facebook

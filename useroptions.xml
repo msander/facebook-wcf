@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE data SYSTEM "http://www.woltlab.com/DTDs/options.dtd">
+<data>
+	<import>
+		<options>
+			<option name="profile.contact.facebook">
+				<categoryname>profile.contact</categoryname>
+				<optiontype>text</optiontype>
+				<showorder>30</showorder>
+				<outputclass>UserOptionOutputFacebook</outputclass>
+			</option>
+		</options>
+	</import>
+</data>
