@@ -202,7 +202,14 @@ class FacebookUtil {
 		else if($user && $user->userID == WCF::getUser()->userID) {
 			WCF::getTPL()->append('additionalFields', '<fieldset>
 				<legend>'.WCF::getLanguage()->get('wcf.facebook.title').'</legend>
-				'.WCF::getLanguage()->get('wcf.facebook.status.connected').'
+				<div class="formElement">
+					<div class="formFieldLabel">
+						<img src="'.RELATIVE_WCF_DIR.'icon/facebookM.png" alt="" />
+					</div>
+					<div class="formField">
+						'.WCF::getLanguage()->get('wcf.facebook.status.connected').'
+					</div>
+				</div>
 			</fieldset>');
 		}
 

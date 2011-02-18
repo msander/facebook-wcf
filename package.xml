@@ -2,7 +2,7 @@
 <!DOCTYPE package SYSTEM "http://www.woltlab.com/DTDs/package.dtd">
 <package name="org.gnex.facebook.auth">
 	<packageInformation>
-		<packagename><![CDATA[Facebook-Verbindung]]></packagename>
+		<packagename><![CDATA[Facebook]]></packagename>
 		<packagedescription language="de"><![CDATA[Dieses Plugin verbindet Facebook mit dem WCF. So ist z.B. ein Direktlogin via Facebook möglich.]]></packagedescription>
 		<packagedescription><![CDATA[This enables all users to login with their facebook account.]]></packagedescription>
 		<version>2.1.0</version>
@@ -17,6 +17,7 @@
 	</authorinformation>
 
 	<requiredpackages>
+		<templates>templates.tar</templates>
 		<requiredpackage minversion="1.1.0">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
 <!--
@@ -39,6 +40,7 @@
 
 	<instructions type="update" fromversion="2.0.0">
 		<files>files.tar</files>
+		<templates>templates.tar</templates>
 		<useroptions>useroptions.xml</useroptions>
 		<languages languagecode="de">de.xml</languages>
 		<languages languagecode="de-informal">de-informal.xml</languages>
