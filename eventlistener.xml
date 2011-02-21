@@ -3,6 +3,11 @@
 <data>
 	<import>
 		<eventlistener>
+			<eventclassname>SessionFactory</eventclassname>
+			<eventname>didInit</eventname>
+			<listenerclassfile>lib/system/event/listener/UserLoginFacebookListener.class.php</listenerclassfile>
+		</eventlistener>
+		<eventlistener>
 			<eventclassname>UserLoginForm</eventclassname>
 			<eventname>readData</eventname>
 			<listenerclassfile>lib/system/event/listener/UserLoginFacebookListener.class.php</listenerclassfile>

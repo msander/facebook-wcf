@@ -42,6 +42,7 @@
 		<files>files.tar</files>
 		<templates>templates.tar</templates>
 		<useroptions>useroptions.xml</useroptions>
+		<eventlistener>eventlistener.xml</eventlistener>
 		<languages languagecode="de">de.xml</languages>
 		<languages languagecode="de-informal">de-informal.xml</languages>
 		<languages languagecode="en">en.xml</languages>
