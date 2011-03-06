@@ -29,6 +29,7 @@
 		<files>files.tar</files>
 		<templates>templates.tar</templates>
 		<sql>install.sql</sql>
+		<script>acp/update_facebook.php</script>
 		
 		<options>options.xml</options>
 		<useroptions>useroptions.xml</useroptions>
