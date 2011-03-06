@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE package SYSTEM "http://www.woltlab.com/DTDs/package.dtd">
 <package name="org.gnex.facebook.auth">
+<!-- will be changed to de.easy-coding.wcf.facebook -->
 	<packageInformation>
 		<packagename><![CDATA[Facebook]]></packagename>
 		<packagedescription language="de"><![CDATA[Dieses Plugin verbindet Facebook mit dem WCF. So ist z.B. ein Direktlogin via Facebook möglich.]]></packagedescription>
 		<packagedescription><![CDATA[This enables all users to login with their facebook account.]]></packagedescription>
-		<version>2.1.0</version>
+		<version>2.1.1</version>
 		<date>DATE</date>
 		<plugin>com.woltlab.wcf</plugin>
 		<isunique>1</isunique>
@@ -29,7 +30,7 @@
 		<files>files.tar</files>
 		<templates>templates.tar</templates>
 		<sql>install.sql</sql>
-		<script>acp/update_facebook.php</script>
+		<script>acp/check_facebook.php</script>
 		
 		<options>options.xml</options>
 		<useroptions>useroptions.xml</useroptions>
@@ -37,6 +38,11 @@
 		<languages languagecode="de">de.xml</languages>
 		<languages languagecode="de-informal">de-informal.xml</languages>
 		<languages languagecode="en">en.xml</languages>
+	</instructions>
+
+	<instructions type="update" fromversion="2.1.0">
+		<files>files.tar</files>
+		<script>acp/update_facebook.php</script>
 	</instructions>
 
 	<instructions type="update" fromversion="2.0.0">
@@ -71,7 +77,7 @@
 		<files>files.tar</files>
 		<useroptions>useroptions.xml</useroptions>
 		<templates>templates.tar</templates>
-		<templatepatch fuzzfactor="2">templates.diff</templatepatch>
+		<templatepatch fuzzfactor="2">templates113.diff</templatepatch>
 		<sql>update.sql</sql>
 		
 		<options>options.xml</options>

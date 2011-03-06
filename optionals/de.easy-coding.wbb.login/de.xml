@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language SYSTEM "http://www.woltlab.com/DTDs/language.dtd">
+<language languagecode="de">
+	<category name="wcf.acp.option">
+		<item name="wcf.acp.option.category.login_quick"><![CDATA[Quick Control]]></item>
+		<item name="wcf.acp.option.category.login_quick.description"><![CDATA[]]></item>
+		<item name="wcf.acp.option.login_use_quicklogin"><![CDATA[Login über Quick Controls]]></item>
+		<item name="wcf.acp.option.login_use_quicklogin.description"><![CDATA[Soll der Login über die Quick Controls in der Headerzeile ermöglicht werden? In dem Falle sind keine speziellen Login Seiten mit Facebook und OpenID möglich.]]></item>
+		<item name="wcf.acp.option.login_use_quickregister"><![CDATA[Registrierung über Quick Controls]]></item>
+		<item name="wcf.acp.option.login_use_quickregister.description"><![CDATA[Soll die Registrierung über die Quick Controls in der Headerzeile ermöglicht werden?.]]></item>
+	</category>
+</language>

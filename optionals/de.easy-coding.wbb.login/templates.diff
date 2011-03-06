@@ -1,0 +1,17 @@
+--- header.tpl	2010-01-27 18:05:08.000000000 +0100
++++ header_patched.tpl	2010-07-18 22:41:06.000000000 +0200
+@@ -43,4 +43,4 @@
+-						{if !REGISTER_DISABLED}<li id="userMenuRegistration"><a href="index.php?page=Register{@SID_ARG_2ND}"><img src="{icon}registerS.png{/icon}" alt="" /> <span>{lang}wbb.header.userMenu.register{/lang}</span></a></li>{/if}
++						{if LOGIN_USE_QUICKREGISTER && !REGISTER_DISABLED}<li id="userMenuRegistration"><a href="index.php?page=Register{@SID_ARG_2ND}"><img src="{icon}registerS.png{/icon}" alt="" /> <span>{lang}wbb.header.userMenu.register{/lang}</span></a></li>{/if}
+ 
+ 						{if $additionalUserMenuItems|isset}{@$additionalUserMenuItems}{/if}
+ 
+@@ -80,7 +80,7 @@
+ 		</div>
+ 	</div>
+ 
+-	{if !$this->user->userID && !LOGIN_USE_CAPTCHA}
++	{if LOGIN_USE_QUICKLOGIN && !$this->user->userID && !LOGIN_USE_CAPTCHA}
+ 		<script type="text/javascript">
+ 			//<![CDATA[
+ 			document.observe("dom:loaded", function() {
