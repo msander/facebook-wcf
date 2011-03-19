@@ -43,6 +43,7 @@ class UserLoginFacebookListener implements EventListener {
 
 					// UserLoginForm should not write cookie, since interfaces only support unhashed password
 					$eventObj->useCookies = 0;
+					$eventObj->useCaptcha = 0;
 
 					// set cookies
 					UserAuth::getInstance()->storeAccessData($user, $user->username, $user->password);

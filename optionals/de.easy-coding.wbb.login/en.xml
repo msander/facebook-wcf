@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE language SYSTEM "http://www.woltlab.com/DTDs/language.dtd">
-<language languagecode="de">
+<language languagecode="en">
 	<category name="wcf.acp.option">
 		<item name="wcf.acp.option.category.login_quick"><![CDATA[Quick Control]]></item>
 		<item name="wcf.acp.option.category.login_quick.description"><![CDATA[]]></item>
