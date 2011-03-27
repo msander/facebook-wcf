@@ -13,7 +13,7 @@
 	</packageInformation>
 
 	<authorinformation>
-		<author><![CDATA[Torben Brodt, Tim Wittenberg]]></author>
+		<author><![CDATA[Torben Brodt]]></author>
 		<authorurl>http://trac.easy-coding.de/trac/wcf</authorurl>
 	</authorinformation>
 
@@ -21,11 +21,7 @@
 		<templates>templates.tar</templates>
 		<requiredpackage minversion="1.1.0">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
-<!--
-	<optionalpackages>
-		<optionalpackage file="optionals/org.gnex.facebook.auth.profile.tar.gz">org.gnex.facebook.auth.profile</optionalpackage>
-	</optionalpackages>
--->
+
 	<instructions type="install">
 		<files>files.tar</files>
 		<templates>templates.tar</templates>
