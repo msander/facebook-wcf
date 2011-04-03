@@ -174,7 +174,7 @@ class FacebookUtil {
 			self::updateAvatar('https://graph.facebook.com/'.$me['id'].'/picture', $user);
 
 			// either user is new, oder just got a link, but add a facebook link
-			FacebookAccountEditor::create($user->userID, $me['id'])
+			FacebookAccountEditor::create($user->userID, $me['id']);
 
 			return true;
 		}
@@ -275,7 +275,7 @@ class FacebookUtil {
 			self::updateAvatar('https://graph.facebook.com/'.$me['id'].'/picture', $user);
 
 			// either user is new, oder just got a link, but add a facebook link
-			FacebookAccountEditor::create($user->userID, $me['id'])
+			FacebookAccountEditor::create($user->userID, $me['id']);
 		}
 		return $user;
 	}

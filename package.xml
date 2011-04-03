@@ -18,7 +18,6 @@
 	</authorinformation>
 
 	<requiredpackages>
-		<templates>templates.tar</templates>
 		<requiredpackage minversion="1.1.0">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
 
