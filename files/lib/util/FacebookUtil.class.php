@@ -1,6 +1,7 @@
 <?php
 require_once(WCF_DIR.'lib/system/event/EventListener.class.php');
 require_once(WCF_DIR.'lib/data/facebook/Facebook.class.php');
+require_once(WCF_DIR.'lib/data/facebook/FacebookAccountEditor.class.php');
 require_once(WCF_DIR.'lib/data/user/avatar/AvatarEditor.class.php');
 require_once(WCF_DIR.'lib/data/user/UserEditor.class.php');
 require_once(WCF_DIR.'lib/util/UserRegistrationUtil.class.php');
@@ -9,6 +10,7 @@ require_once(WCF_DIR.'lib/util/UserRegistrationUtil.class.php');
  * login will display facebook login button and manage all the login stuff
  * 
  * @author	Torben Brodt
+ * @copyright	2010 easy-coding.de
  * @url		http://trac.easy-coding.de/trac/wcf/wiki/facebook
  * @license	GNU General Public License <http://opensource.org/licenses/gpl-3.0.html>
  */
@@ -50,21 +52,6 @@ class FacebookUtil {
 		$row = WCF::getDB()->getFirstRow($sql);
 
 		return $row && $row['facebookID'] > 0;
-	}
-
-	/**
-	 * adds facebook link to user
-	 *
-	 * @param	integer		$facebookID
-	 * @param	User		$user
-	 * @return	boolean
-	 */
-	protected static function addFacebookUser($facebookID, $user) {
-		$sql = "REPLACE INTO	wcf".WCF_N."_user_to_facebook
-					(facebookID, userID)
-			VALUES		(".intval($facebookID).", ".intval($user->userID).")";
-
-		return WCF::getDB()->sendQuery($sql);
 	}
 	
 	protected static function getSession() {
@@ -187,7 +174,7 @@ class FacebookUtil {
 			self::updateAvatar('https://graph.facebook.com/'.$me['id'].'/picture', $user);
 
 			// either user is new, oder just got a link, but add a facebook link
-			self::addFacebookUser($me['id'], $user);
+			FacebookAccountEditor::create($user->userID, $me['id'])
 
 			return true;
 		}
@@ -288,7 +275,7 @@ class FacebookUtil {
 			self::updateAvatar('https://graph.facebook.com/'.$me['id'].'/picture', $user);
 
 			// either user is new, oder just got a link, but add a facebook link
-			self::addFacebookUser($me['id'], $user);
+			FacebookAccountEditor::create($user->userID, $me['id'])
 		}
 		return $user;
 	}
@@ -436,12 +423,9 @@ class FacebookUtil {
 		}
 
 		if($avatarID) {
-
-			// update user
-			$sql = "UPDATE	wcf".WCF_N."_user
-				SET	avatarID = ".$avatarID."
-				WHERE	userID = ".$user->userID;
-			return WCF::getDB()->sendQuery($sql);
+			return $user->getEditor()->updateFields(array(
+				'avatarID' => $avatarID
+			));
 		}
 	}
 }
