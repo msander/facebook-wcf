@@ -29,9 +29,9 @@ class UserLoginFacebookListener implements EventListener {
 		switch($className) {
 			
 			// did agree with rules?
-			case 'SessionFactory':
+			default:
 				// didInit
-				$this->validateRuleAgree($eventObj->session);
+				if($eventObj instanceof SessionFactory) $this->validateRuleAgree($eventObj->session);
 			break;
 
 			// login or register with facebook
