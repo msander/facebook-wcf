@@ -8,7 +8,7 @@
 		<packagedescription><![CDATA[This enables all users to login with their facebook account.]]></packagedescription>
 		<version>2.2.0</version>
 		<date>DATE</date>
-		<plugin>com.woltlab.wcf</plugin>
+		<plugin>com.woltlab.wcf.form.user</plugin>
 		<isunique>1</isunique>
 	</packageinformation>
 
