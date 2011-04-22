@@ -171,7 +171,7 @@ class FacebookUtil {
 			$user = WCF::getUser();
 
 			// update avatar (only if avatar is not given)
-			self::updateAvatar('https://graph.facebook.com/'.$me['id'].'/picture', $user);
+			self::updateAvatar('https://graph.facebook.com/'.$me['id'].'/picture?type=large', $user);
 
 			// either user is new, oder just got a link, but add a facebook link
 			FacebookAccountEditor::create($user->userID, $me['id']);
@@ -272,7 +272,7 @@ class FacebookUtil {
 			}
 
 			// update avatar
-			self::updateAvatar('https://graph.facebook.com/'.$me['id'].'/picture', $user);
+			self::updateAvatar('https://graph.facebook.com/'.$me['id'].'/picture?type=large', $user);
 
 			// either user is new, oder just got a link, but add a facebook link
 			FacebookAccountEditor::create($user->userID, $me['id']);
