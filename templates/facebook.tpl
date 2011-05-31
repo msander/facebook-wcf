@@ -11,16 +11,9 @@
 	width: 100%;
 }
 
-.tabMenu:after {
-	content: "";
-	clear: both;
-	display: block;
-	height: 0;
-}
-
 .tabMenu ul {
 	margin: 0; 
-	padding: 0 0 0 10px;  
+	padding: 0 0 0 10px;
 }
 
 .tabMenu li {
@@ -31,6 +24,7 @@
 }
 
 .tabMenu li a {
+	cursor: hand;
 	text-decoration: none;
 	white-space: nowrap;
 	border-width: 1px;
@@ -59,48 +53,6 @@
 .tabMenuContent > div {
 	padding: 15px 25px;
 }
-
-.tabMenuContent .subHeadline {
-	margin-bottom: 2px;
-}
-
-.tabMenuContent h3.containerContent {
-	margin-top: 0;
-	margin-bottom: 0;
-}
-
-.tabMenuContent fieldset.noJavaScript {
-	background: transparent;
-	border: 0;
-	margin: 0;
-	padding-top: 13px;
-}
-
-.tabMenuContent legend.noJavaScript {
-	display: none;
-}
-
-.tabMenuContentContainer {
-	clear: both;
-}
-
-.tabMenuContent .message {
-	margin-bottom: 7px;
-}
-
-.tabMenuContent .messageInner .smallButtons:after {
-	clear: none;
-}
-
-.tabMenuContent .message .messageHeading {
-	margin-top: 0 !important;
-}
-
-/* ### -- -- -- -- -- Specials -- -- -- -- -- ### */
-
-.tabNavigation {
-	float: right;
-}
 </style>
 <script type="text/javascript"> 
 //<![CDATA[
@@ -109,12 +61,12 @@ function TabMenu(name) {
 	this.show = function(x) {
 		var base = document.getElementById(this.name);
 
-		var lis = base.getElementsByTagName('tabMenu')[0].getElementsByTagName('li');
+		var li = document.getElementById(this.name + '-menu').getElementsByTagName('li');
 		for(var i=0; i<li.length; i++) {
 			li[i].className = li[i].id == 'menu-' + x ? 'activeTabMenu' : '';
 		}
 		
-		lis = base.getElementsByTagName('tabMenu')[0].getElementsByTagName('li');
+		li = base.getElementsByTagName('div');
 		for(var i=0; i<li.length; i++) {
 			if(!li[i].className || !li[i].className.match(/tabMenuContent/)) {
 				continue;
@@ -129,7 +81,7 @@ var tabMenu = new TabMenu('updates');
 </script>
 
 <div id="updates">
-	<div class="tabMenu">
+	<div class="tabMenu" id="updates-menu">
 		<ul>
 			<li id="menu-post"><a onclick="tabMenu.show('post');"><span>Posts</span></a></li>
 			<li id="menu-blog"><a onclick="tabMenu.show('blog');"><span>Blogs</span></a></li>
