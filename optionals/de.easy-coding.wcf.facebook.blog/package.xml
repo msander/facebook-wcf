@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE package SYSTEM "http://www.woltlab.com/DTDs/package.dtd">
+<package name="de.easy-coding.wcf.facebook.blog">
+	<packageinformation>
+		<packagename><![CDATA[Facebook Page: Community Blog]]></packagename>
+		<packagedescription><![CDATA[Show latest blog entries on Facebook page.]]></packagedescription>
+		<version>1.0.0</version>
+		<date>DATE</date>
+		<isunique>1</isunique>
+	</packageinformation>
+
+	<authorinformation>
+		<author><![CDATA[Torben Brodt]]></author>
+		<authorurl>http://trac.easy-coding.de/trac/wcf</authorurl>
+	</authorinformation>
+
+	<requiredpackages>
+		<requiredpackage minversion="1.1.0">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="2.2.0">de.easy-coding.wcf.facebook</requiredpackage>
+	</requiredpackages>
+
+	<instructions type="install">
+		<files>files.tar</files>
+		<eventlistener>eventlistener.xml</eventlistener>
+	</instructions>
+
+	<instructions type="update" fromversion="1.0.0">
+		<files>files.tar</files>
+	</instructions>
+</package>

@@ -63,7 +63,7 @@ function TabMenu(name) {
 
 		var li = document.getElementById(this.name + '-menu').getElementsByTagName('li');
 		for(var i=0; i<li.length; i++) {
-			li[i].className = li[i].id == 'menu-' + x ? 'activeTabMenu' : '';
+			li[i].className = (!x && !i) || li[i].id == 'menu-' + x ? 'activeTabMenu' : '';
 		}
 		
 		li = base.getElementsByTagName('div');
@@ -72,7 +72,7 @@ function TabMenu(name) {
 				continue;
 			}
 
-			li[i].className = li[i].id == 'content-' + x ? 'border tabMenuContent' : 'border tabMenuContent hidden';
+			li[i].className = (!x && !i) || li[i].id == 'content-' + x ? 'border tabMenuContent' : 'border tabMenuContent hidden';
 		}
 	};
 };
@@ -80,44 +80,29 @@ var tabMenu = new TabMenu('updates');
 //]]>
 </script>
 
+{if $additionalBoxContens1|isset}{@$additionalBoxContens1}{/if}
 <div id="updates">
 	<div class="tabMenu" id="updates-menu">
 		<ul>
+			{foreach from=$boxLinks item=linkName key=key}
 			<li id="menu-post"><a onclick="tabMenu.show('post');"><span>Posts</span></a></li>
-			<li id="menu-blog"><a onclick="tabMenu.show('blog');"><span>Blogs</span></a></li>
-			<li id="menu-wiki"><a onclick="tabMenu.show('wiki');"><span>Wikis</span></a></li>
-			<li id="menu-job"><a onclick="tabMenu.show('job');"><span>Jobs</span></a></li>
+			{/foreach}
 		</ul>
 	</div>
-	<div class="border tabMenuContent hidden" id="content-post">
+	{foreach from=$boxContents item=boxTemplate key=key}
+        <div class="border tabMenuContent hidden" id="content-{$key}">
 		<div class="container-1">
-			<h3 class="subHeadline">Posts</h3>
-			xxx
+			{include file=$boxTemplate}
 		</div>
 	</div>
-	<div class="border tabMenuContent hidden" id="content-blog">
-		<div class="container-1">
-			<h3 class="subHeadline">Blogs</h3>
-			xxx
-		</div>
-	</div>
-	<div class="border tabMenuContent hidden" id="content-wiki">
-		<div class="container-1">
-			<h3 class="subHeadline">Wikis</h3>
-			xxx
-		</div>
-	</div>
-	<div class="border tabMenuContent hidden" id="content-job">
-		<div class="container-1">
-			<h3 class="subHeadline">Jobs</h3>
-			xxx
-		</div>
-	</div>
+        {/foreach}
 </div>
+
+{if $additionalBoxContens2|isset}{@$additionalBoxContens2}{/if}
 
 
 <script type="text/javascript"> 
 //<![CDATA[
-tabMenu.show('post') 
+tabMenu.show() 
 //]]>
 </script>
