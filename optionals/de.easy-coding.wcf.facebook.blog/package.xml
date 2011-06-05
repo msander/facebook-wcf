@@ -6,6 +6,7 @@
 		<packagedescription><![CDATA[Show latest blog entries on Facebook page.]]></packagedescription>
 		<version>1.0.0</version>
 		<date>DATE</date>
+		<plugin>com.woltlab.wcf.data.page</plugin>
 		<isunique>1</isunique>
 	</packageinformation>
 
@@ -21,6 +22,7 @@
 
 	<instructions type="install">
 		<files>files.tar</files>
+		<templates>templates.tar</templates>
 		<eventlistener>eventlistener.xml</eventlistener>
 	</instructions>
 
