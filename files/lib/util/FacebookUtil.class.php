@@ -252,6 +252,11 @@ class FacebookUtil {
 
 		// facebook permissions granted but no login exists
 		if(!$user) {
+		
+			if(!isset($me['email'])) {
+				throw new SystemException('missing email privileges for user: '.
+					(isset($me['name']) ? $me['name'] : 'unknown'));
+			}
 
 			// check if email address is already in use
 			$user = new User(null, null, null, $me['email']);
