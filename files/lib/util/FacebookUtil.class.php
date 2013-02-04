@@ -73,6 +73,22 @@ class FacebookUtil {
 		return self::$facebook->getUser();
 	}
 
+	public static function assignVariables() {
+		$session = FacebookUtil::getSession(); 
+		//getSession does return the fb user object. the name 'session' comes from a previous version (sdk2)
+		//it also initializes the $facebook object
+		$loginUrl = self::$facebook->getLoginUrl(array(
+			'scope' => 'email',
+			'display' => 'popup',
+			'redirect_uri' => PAGE_URL.'/index.php?form=UserLogin&t='.SECURITY_TOKEN.SID_ARG_2ND,
+		));
+
+		WCF::getTPL()->assign(array(
+			'session' => $session,
+			'loginUrl' => $loginUrl,
+		));
+	}
+
 	/**
 	 *
 	 */
@@ -100,7 +116,7 @@ class FacebookUtil {
 		}
 
 		// no permissions granted, ask for login
-		if(!$me) {
+		if(!$me || !array_key_exists('code',$_REQUEST)) {
 			$loginUrl = self::$facebook->getLoginUrl(array(
 				'scope' => 'email',
 				'display' => 'popup'
@@ -144,7 +160,8 @@ class FacebookUtil {
 		}
 
 		// no permissions granted, ask for login
-		if(!$me) {
+		//if(!$me) {
+		if(!$me || !array_key_exists('code',$_REQUEST)) {
 			$loginUrl = self::$facebook->getLoginUrl(array(
 				'scope' => 'email',
 				'display' => 'popup'

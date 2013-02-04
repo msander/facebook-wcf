@@ -26,27 +26,8 @@ class UserLoginFacebookListener implements EventListener {
 			return;
 		}
 		
-
-		// login or register with facebook
-		$user = FacebookUtil::loginOrRegister($eventObj);		
-
-		if($user) {
-
-			// UserLoginForm should not write cookie, since interfaces only support unhashed password
-			$eventObj->useCookies = 0;
-			$eventObj->useCaptcha = 0;
-
-			// set cookies
-			UserAuth::getInstance()->storeAccessData($user, $user->username, $user->password);
-			HeaderUtil::setCookie('password', $user->password, TIME_NOW + 365 * 24 * 3600);
-
-			// save cookie and redirect
-			$eventObj->user = $user;
-			$eventObj->save();
-
-			//exit;
-		}
-
+		FacebookUtil::assignVariables();
+		
 		switch($className) {
 			
 			// did agree with rules?
@@ -55,6 +36,29 @@ class UserLoginFacebookListener implements EventListener {
 				if(false && $eventObj instanceof SessionFactory) $this->validateRuleAgree($eventObj->session);
 			break;
 
+			// login or register with facebook
+			case 'UserLoginForm':
+				// readData
+				$user = FacebookUtil::loginOrRegister($eventObj);		
+
+				if($user) {
+
+					// UserLoginForm should not write cookie, since interfaces only support unhashed password
+					$eventObj->useCookies = 0;
+					$eventObj->useCaptcha = 0;
+
+					// set cookies
+					UserAuth::getInstance()->storeAccessData($user, $user->username, $user->password);
+					HeaderUtil::setCookie('password', $user->password, TIME_NOW + 365 * 24 * 3600);
+
+					// save cookie and redirect
+					$eventObj->user = $user;
+					$eventObj->save();
+
+					exit;
+				}
+			break;
+			
 			// registered user links with facebook
 			case 'UserProfileEditForm':
 				// assignVariables
