@@ -27,6 +27,11 @@
 			<eventname>assignVariables</eventname>
 			<listenerclassfile>lib/system/event/listener/UserLoginFacebookListener.class.php</listenerclassfile>
 		</eventlistener>
+		<eventlistener>
+			<eventclassname>AbstractPage</eventclassname>
+			<eventname>assignVariables</eventname>
+			<listenerclassfile>lib/system/event/listener/UserLoginFacebookListener.class.php</listenerclassfile>
+		</eventlistener>
 	</import>
 	<delete>
 		<eventlistener>

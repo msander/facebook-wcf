@@ -1,0 +1,1 @@
+ALTER TABLE `wcf1_user_to_facebook` CHANGE `facebookID` `facebookID` VARCHAR( 30 ) NOT NULL;

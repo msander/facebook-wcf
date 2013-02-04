@@ -1,3 +1,4 @@
+{if !$session}
 <div class="formElement">
 	<div class="formField">
 		<div id="fb-root"></div>
@@ -5,7 +6,6 @@
 		window.fbAsyncInit = function() {
 			FB.init({
 				appId   : '{FACEBOOK_APPID}',
-				session : {$session|json_encode}, // don't refetch the session when PHP already has it
 				status  : true, // check login status
 				cookie  : true, // enable cookies to allow the server to access the session
 				xfbml   : true // parse XFBML
@@ -28,3 +28,4 @@
 		<a href="{$loginUrl}"><img src="http://static.ak.fbcdn.net/rsrc.php/zB6N8/hash/4li2k73z.gif" alt="" /></a>
 	</div>
 </div>
+{/if}

@@ -9,7 +9,7 @@ require_once(WCF_DIR.'lib/util/UserRegistrationUtil.class.php');
 /**
  * login will display facebook login button and manage all the login stuff
  * 
- * @author	Torben Brodt
+ * @author	Torben Brodt, Marcel Sander
  * @copyright	2010 easy-coding.de
  * @url		http://trac.easy-coding.de/trac/wcf/wiki/facebook
  * @license	GNU General Public License <http://opensource.org/licenses/gpl-3.0.html>
@@ -69,9 +69,8 @@ class FacebookUtil {
 		// if it is still valid until we make an API call using the session. A session
 		// can become invalid if it has already expired (should not be getting the
 		// session back in this case) or if the user logged out of Facebook.
-		$session = self::$facebook->getSession();
 		
-		return $session;
+		return self::$facebook->getUser();
 	}
 
 	/**
@@ -103,7 +102,7 @@ class FacebookUtil {
 		// no permissions granted, ask for login
 		if(!$me) {
 			$loginUrl = self::$facebook->getLoginUrl(array(
-				'req_perms' => 'email',
+				'scope' => 'email',
 				'display' => 'popup'
 			));
 
@@ -147,7 +146,7 @@ class FacebookUtil {
 		// no permissions granted, ask for login
 		if(!$me) {
 			$loginUrl = self::$facebook->getLoginUrl(array(
-				'req_perms' => 'email',
+				'scope' => 'email',
 				'display' => 'popup'
 			));
 
@@ -232,9 +231,9 @@ class FacebookUtil {
 		}
 
 		// no permissions granted, ask for login
-		if(!$me) {
+		if(!$me || !array_key_exists('code',$_REQUEST)) {
 			$loginUrl = self::$facebook->getLoginUrl(array(
-				'req_perms' => 'email',
+				'scope' => 'email',
 				'display' => 'popup'
 			));
 

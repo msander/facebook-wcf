@@ -5,8 +5,8 @@
 		<packagename><![CDATA[Facebook]]></packagename>
 		<packagedescription language="de"><![CDATA[Dieses Plugin verbindet Facebook mit dem WCF. So ist z.B. ein Direktlogin via Facebook möglich.]]></packagedescription>
 		<packagedescription><![CDATA[This enables all users to login with their facebook account.]]></packagedescription>
-		<version>2.2.1</version>
-		<date>DATE</date>
+		<version>2.3.0</version>
+		<date>2013-02-04</date>
 		<plugin>com.woltlab.wcf.form.user</plugin>
 		<isunique>1</isunique>
 	</packageinformation>
@@ -36,8 +36,11 @@
 	</instructions>
 
 	<instructions type="update" fromversion="2.2.0">
+		<eventlistener>eventlistener.xml</eventlistener>
 		<files>files.tar</files>
 		<templates>templates.tar</templates>
+		<sql>update2.sql</sql>
+		<script>acp/check_facebook.php</script>
 	</instructions>
 
 	<instructions type="update" fromversion="2.1.0">
